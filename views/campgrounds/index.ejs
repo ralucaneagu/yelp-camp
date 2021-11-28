@@ -1,0 +1,33 @@
+<%layout("layout/boilerplate")%>
+    <h1>You reached the page! Yay!</h1>
+    <div>
+        <a href="/campgrounds/new">Add new campground</a>
+    </div>
+    
+        <% for(let c of campgrounds) {%>
+            <div class="card mb-3">
+            <div class ="row">
+                <div class="col-md-4">
+                    <%if(c.images.length) {%>
+                    <img class="img-fluid" src="<%=c.images[0].url%>">
+                    <% }else {%>
+                        <img class="img-fluid" alt=""
+                            src="https://res.cloudinary.com/douqbebwk/image/upload/v1600103881/YelpCamp/lz8jjv2gyynjil7lswf4.png">
+                        <% } %>
+                </div>
+                <div class="col-md-8">
+                    <div class="card-body">
+                        <h3 class="card-title"><%=c.name%></h3>
+                        <p class="card-text"><%=c.desc%></p>
+                        <p class="card-text">
+                            <small class="text-muted"><%=c.loc%></small>
+                        </p>
+                        <a href="/campgrounds/<%=c.id%>"class="btn btn-primary">View</a>
+                    </div>
+                </div>
+            </div>
+            </div>
+        <%} %>
+    
+
+
